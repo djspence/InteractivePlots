@@ -1,0 +1,28 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+library(plotly)
+```
+
+
+## Plotly 3D Plot - The Plot
+```{r message=FALSE, warning=FALSE}
+data(mtcars)
+hp <- mtcars$hp
+wt <- mtcars$wt
+mpg <- mtcars$mpg
+disp <- mtcars$disp
+
+plot_ly(x=hp, y=wt, z=mpg, 
+        type = "scatter3d", 
+        mode="markers", 
+        color = disp)
+```
+

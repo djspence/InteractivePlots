@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+library(plotly)
+```
+
+
+## Plotly Interactive Scatterplot - The Plot
+
+```{r warning=FALSE, message=FALSE}
+plot_ly(data = mtcars, 
+        x=~wt, y=~mpg, 
+        mode = "markers", 
+        type = "scatter", 
+        color = as.factor(mtcars$cyl), 
+        size = mtcars$hp)
+```
+

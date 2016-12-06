@@ -1,0 +1,109 @@
+---
+title: "Interactive Plots"
+author: "D. Spence"
+date: "December 5, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+library(plotly)
+```
+
+
+## Plotly Interactive Scatterplot - The Plot
+
+```{r warning=FALSE, message=FALSE}
+plot_ly(data = mtcars, 
+        x=~wt, y=~mpg, 
+        mode = "markers", 
+        type = "scatter", 
+        color = as.factor(mtcars$cyl), 
+        size = mtcars$hp)
+```
+
+## Plotly 3D Plot - The Code
+```{r echo=TRUE, eval=FALSE}
+data(mtcars)
+hp <- mtcars$hp
+wt <- mtcars$wt
+mpg <- mtcars$mpg
+disp <- mtcars$disp
+
+plot_ly(x=hp, y=wt, z=mpg, 
+        type = "scatter3d", 
+        mode="markers", 
+        color = disp)
+```
+
+## Plotly 3D Plot - The Plot
+```{r}
+data(mtcars)
+hp <- mtcars$hp
+wt <- mtcars$wt
+mpg <- mtcars$mpg
+disp <- mtcars$disp
+
+plot_ly(x=hp, y=wt, z=mpg, 
+        type = "scatter3d", 
+        mode="markers", 
+        color = disp)
+```
+
+## Leaflet Simple Example - The Code
+```{r echo=TRUE, eval=FALSE}
+myMap <- leaflet() %>% 
+    addTiles() %>%
+    addMarkers(lat=34.52954,lng=-83.98419, 
+               popup="UNG - Newton Oakes" )
+
+myMap
+```
+
+## Leaflet Simple Example - The Map
+```{r}
+myMap <- leaflet() %>% 
+    addTiles() %>%
+    addMarkers(lat=34.52954,lng=-83.98419, popup="UNG - Newton Oakes" )
+
+myMap
+```
+
+## Leaflet Custom Icon - The Code
+```{r echo=TRUE, eval=FALSE}
+UNGIcon <- makeIcon(
+   iconUrl = "http://ung.edu/university-relations/_uploads/images/visual-identity-elements/UNG_SteepleMark_2c_121x200.png", 
+   iconWidth = 30, iconHeight = 50, 
+   iconAnchorX = 15, iconAnchorY = 25
+)
+
+myMap <- leaflet() %>% 
+    addTiles() %>%
+    addMarkers(lat=34.52954,lng=-83.98419, 
+               popup="UNG - Newton Oakes", icon=UNGIcon)
+
+myMap
+```
+
+## Leaflet Custom Icon - The Map
+```{r}
+UNGIcon <- makeIcon(
+   iconUrl = "http://ung.edu/university-relations/_uploads/images/visual-identity-elements/UNG_SteepleMark_2c_121x200.png", 
+   iconWidth = 30, iconHeight = 50, 
+   iconAnchorX = 15, iconAnchorY = 25
+)
+
+myMap <- leaflet() %>% 
+    addTiles() %>%
+    addMarkers(lat=34.52954,lng=-83.98419, 
+               popup="UNG - Newton Oakes", icon=UNGIcon)
+
+myMap
+```
+
+
+
